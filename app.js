@@ -1,13 +1,18 @@
-const express=require('express');
+const express = require('express');
+const path=require('path');
 
-const app=express();
+const app = express();
 
-app.get('/',(req ,res)=>{
-    res.send('Hellooooo');
+
+//MIDDLEWARES
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'temp/index.html'))
 })
 
-const port=3000;
+const port = 3000;
 
-app.listen(port,()=>{
+app.listen(port, () => {
     console.log(`Sunucu ${port} portunda başlatıldı.`)
 })
