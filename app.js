@@ -8,7 +8,7 @@ const Photo=require('./models/Photo');
 const app = express();
 
 //connect DB
-mongoose.connect('mongodb://localhost/pcat',{
+mongoose.connect('mongodb://localhost/pcat-db',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -34,10 +34,10 @@ app.get('/add', (req, res) => {
     res.render('add')
 })
 
-app.post('/photo', async (req, res) => {
-    await Photo.create(req.body);
+app.post('/photos', async (req, res) => {
+    await Photo.create(req.body)
     res.redirect('/')
-})
+});
 
 
 const port = 3000;
