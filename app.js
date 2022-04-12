@@ -14,7 +14,7 @@ const app = express();
 mongoose.connect('mongodb://localhost/pcat-db', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    //useFindAndModify:false
+
 
 });
 
@@ -36,6 +36,7 @@ app.get('/photos/:id',photoController.getPhoto);
 app.post('/photos', photoController.createPhoto);
 app.put('/photos/:id', photoController.updatePhoto);
 app.delete('/photos/:id',photoController.deletePhoto );
+
 
 
 app.get('/about',pageController.getAboutPage);
